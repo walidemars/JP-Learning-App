@@ -18,6 +18,5 @@ public class InputManager : MonoBehaviour
         Vector3 movement = new Vector3(readMovement.x, readMovement.y, 0);
         movement.Normalize();
         transform.position += movement * moveSpeed * Time.deltaTime;
-        //transform.position.Normalize();
     }
 }
