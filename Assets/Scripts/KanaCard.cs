@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class KanaCard : CardData
 {
     public string kana;

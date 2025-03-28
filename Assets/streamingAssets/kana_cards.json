@@ -1,0 +1,39 @@
+{
+  "Items": [
+    {
+      "title": "Карточка каны",
+      "description": "Знак хираганы",
+      "kana": "あ",
+      "translation": "a",
+      "example": "あか {a-ka}　- красный"
+    },
+    {
+      "title": "Карточка каны",
+      "description": "Знак хираганы",
+      "kana": "い",
+      "translation": "i",
+      "example": "はい {ha-i}　- да!"
+    },
+    {
+      "title": "Карточка каны",
+      "description": "Знак хираганы",
+      "kana": "う",
+      "translation": "u",
+      "example": "うち {u-chi}　- дом"
+    },
+    {
+      "title": "Карточка каны",
+      "description": "Знак хираганы",
+      "kana": "え",
+      "translation": "e",
+      "example": "まえ {ma-e}　- перед"
+    },
+    {
+      "title": "Карточка каны",
+      "description": "Знак хираганы",
+      "kana": "お",
+      "translation": "o",
+      "example": "かお {ka-o}　- лицо"
+    }
+  ]
+}
