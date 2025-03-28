@@ -1,0 +1,17 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class NavigationManager : MonoBehaviour
+{
+    // Метод для возврата в главное меню
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    // Метод для возврата на карту модулей
+    public void GoToModuleMap()
+    {
+        SceneManager.LoadScene("ModuleMap");
+    }
+}
