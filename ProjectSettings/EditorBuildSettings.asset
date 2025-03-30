@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 49a06cacd8a2fe843a0aa3c68bfdb682
   - enabled: 1
     path: Assets/Scenes/MainMenu/ModuleMap.unity
-    guid: 12a03c4c548a10c48b5b0c799311f3ba
+    guid: 7acab3fba69fba34eb478540ec56954d
   - enabled: 1
     path: Assets/Scenes/MainMenu/ProfileScreen.unity
     guid: 86776e5505f1f7c42a8664140886cc61
@@ -18,14 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu/SettingsScreen.unity
     guid: c06f6b544ddb1e64aa7efada0936fded
   - enabled: 1
+    path: Assets/Scenes/MainMenu/HiraganaMap.unity
+    guid: 12a03c4c548a10c48b5b0c799311f3ba
+  - enabled: 1
     path: Assets/Scenes/KanaLearningLevel.unity
     guid: eb4489b0eb1280a4aa7f0e3f7b0b0a81
-  - enabled: 0
-    path: Assets/Scenes/GameScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
-    path: Assets/Scenes/CardScene.unity
-    guid: a2e77d76162f13442b0eec461dcd0f81
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

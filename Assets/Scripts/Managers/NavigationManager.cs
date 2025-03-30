@@ -14,4 +14,9 @@ public class NavigationManager : MonoBehaviour
     {
         SceneManager.LoadScene("ModuleMap");
     }
+
+    public void GoToHiraganaMap()
+    {
+        SceneManager.LoadScene("HiraganaMap");
+    }
 }
