@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8261ad2f21c36e141bf81a443defa6b2, type: 3}
+  m_Name: HiraganaLevelCollection
+  m_EditorClassIdentifier: 
+  hiraganaLevels:
+  - {fileID: 11400000, guid: 7c8c2436718526b4b98ca56b48accf79, type: 2}
+  - {fileID: 11400000, guid: 95fc4e8f947ca1a4a9fbeec420bc5b9a, type: 2}
+  - {fileID: 11400000, guid: 60a69391756d05442bdba2d91f311924, type: 2}
+  - {fileID: 11400000, guid: 9f91b687f29bd454eb12471281005710, type: 2}
+  - {fileID: 11400000, guid: 1e1cfb284fd3d954fb03fee71e2489fd, type: 2}
+  - {fileID: 11400000, guid: a420660d49cb1b24da18c360da006f62, type: 2}
+  - {fileID: 11400000, guid: 4197ce76730e510448f220ce9d6d4fa7, type: 2}
+  - {fileID: 11400000, guid: 6c663dc46e4cf87458f11a21fe467cee, type: 2}
+  - {fileID: 11400000, guid: afa9cda7f46f06c4cb9ad0b8674a9ea8, type: 2}
+  katakanaLevels: []

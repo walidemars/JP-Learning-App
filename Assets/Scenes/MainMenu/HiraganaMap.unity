@@ -1662,16 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1a0a6f6d7017c47bea8a90300ae481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevels:
-  - {fileID: 11400000, guid: 7c8c2436718526b4b98ca56b48accf79, type: 2}
-  - {fileID: 11400000, guid: 95fc4e8f947ca1a4a9fbeec420bc5b9a, type: 2}
-  - {fileID: 11400000, guid: 60a69391756d05442bdba2d91f311924, type: 2}
-  - {fileID: 11400000, guid: 9f91b687f29bd454eb12471281005710, type: 2}
-  - {fileID: 11400000, guid: 1e1cfb284fd3d954fb03fee71e2489fd, type: 2}
-  - {fileID: 11400000, guid: a420660d49cb1b24da18c360da006f62, type: 2}
-  - {fileID: 11400000, guid: 4197ce76730e510448f220ce9d6d4fa7, type: 2}
-  - {fileID: 11400000, guid: 6c663dc46e4cf87458f11a21fe467cee, type: 2}
-  - {fileID: 11400000, guid: afa9cda7f46f06c4cb9ad0b8674a9ea8, type: 2}
+  levelCollection: {fileID: 11400000, guid: 94bdf0f139d6f0a4e8bf395bb85759af, type: 2}
   levelButtonPrefab: {fileID: 8005379512153925851, guid: 2b44c7a6851e1034e97c1f92ecb8b06f, type: 3}
   buttonsContainer: {fileID: 627019884}
 --- !u!4 &2128709046

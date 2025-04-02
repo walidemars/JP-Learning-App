@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class ModuleDisplay : MonoBehaviour
 {
-    [Header("Данные Модуля")]
-    public KanaModuleData[] currentLevels;
+    [Header("Данные Уровней")]
+    //public KanaModuleData[] currentLevels;
+    public KanaLevelCollection levelCollection; // ССЫЛКА НА ВСЕ УРОВНИ
 
     [Header("UI Элементы")]
     public GameObject levelButtonPrefab;
@@ -26,10 +27,10 @@ public class ModuleDisplay : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Проверяем, есть ли данные модуля и префаб
-        if(currentLevels == null || levelButtonPrefab == null || buttonsContainer == null)
+        // Проверяем, назначена ли коллекция и префаб
+        if (levelCollection == null || levelCollection.hiraganaLevels == null || levelButtonPrefab == null || buttonsContainer == null)
         {
-            Debug.LogError("Не назначены данные модуля, префаб кнопки или контейнер!");
+            Debug.LogError("Не назначена коллекция уровней, ее массив пуст, не назначен префаб кнопки или контейнер!");
             return;
         }
 
@@ -61,10 +62,13 @@ public class ModuleDisplay : MonoBehaviour
             }
         }*/
 
-        for (int i = 0; i < currentLevels.Length; i++)
+        // Получаем массив уровней из коллекции
+        KanaModuleData[] levelsToDisplay = levelCollection.hiraganaLevels;
+
+        for (int i = 0; i < levelsToDisplay.Length; i++)
         { 
             int levelIndex = i; // Захватываем индекс для лямбды
-            KanaModuleData levelData = currentLevels[i];
+            KanaModuleData levelData = levelsToDisplay[i];
 
             GameObject buttonGO = Instantiate(levelButtonPrefab, buttonsContainer);
             TextMeshProUGUI buttonText = buttonGO.GetComponentInChildren<TextMeshProUGUI>();

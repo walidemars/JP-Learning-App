@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1a0a6f6d7017c47bea8a90300ae481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevels: []
+  levelCollection: {fileID: 11400000, guid: 94bdf0f139d6f0a4e8bf395bb85759af, type: 2}
   levelButtonPrefab: {fileID: 8005379512153925851, guid: 2b44c7a6851e1034e97c1f92ecb8b06f, type: 3}
   buttonsContainer: {fileID: 1487843955}
 --- !u!4 &1428562443

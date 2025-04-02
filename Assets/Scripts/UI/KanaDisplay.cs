@@ -35,7 +35,7 @@ public class KanaDisplay : MonoBehaviour
 
     // Состояние викторины
     private int currentQuizIndex = 0;
-    private string currentCorrectRomanji = "";
+    private string currentCorrectRomaji = "";
     private List<KanaCharacterData> quizKanaList; // Перемешанный список для вопросов
     private int score = 0;
 
@@ -184,21 +184,21 @@ public class KanaDisplay : MonoBehaviour
         resultText.text = ""; // Очищаем текст результата
 
         // Получаем данные для текущего вопроса
-        KanaCharacterData currentKana = quizKanaList[(currentQuizIndex + 1) % quizKanaList.Count]; // Получает с первого по последний, затем снова с первого
+        KanaCharacterData currentKana = quizKanaList[currentQuizIndex % quizKanaList.Count]; // Получает с первого по последний, затем снова с первого
         quizKanaText.text = currentKana.kanaSymbol;
-        currentCorrectRomanji = currentKana.romaji;
+        currentCorrectRomaji = currentKana.romaji;
 
         // Генерация вариантов ответа
         List<string> options = new List<string>
         {
-            currentCorrectRomanji // Добавляем правильный
+            currentCorrectRomaji // Добавляем правильный
         };
 
         // Получаем все ромадзи из уровня
         List<string> allRomanjiInLevel = loadedLevelData.kanaList.Select(k => k.romaji).ToList();
         // Выбираем 3 уникальных неправильных варианта
         List<string> wrongOption = allRomanjiInLevel
-                                .Where(r => r != currentCorrectRomanji) // Не равны правильному
+                                .Where(r => r != currentCorrectRomaji) // Не равны правильному
                                 .OrderBy(r => Random.value) // Перемешиваем
                                 .Take(3) // Берем 3
                                 .ToList();
@@ -245,7 +245,7 @@ public class KanaDisplay : MonoBehaviour
             button.interactable = false;
         }
 
-        if(selectRomanji == currentCorrectRomanji)
+        if(selectRomanji == currentCorrectRomaji)
         {
             resultText.text = "Правильно!";
             resultText.color = correctColor;
@@ -254,11 +254,11 @@ public class KanaDisplay : MonoBehaviour
         }
         else
         {
-            resultText.text = $"Неправильно! Верно: {currentCorrectRomanji}";
+            resultText.text = $"Неправильно! Верно: {currentCorrectRomaji}";
             resultText.color = wrongColor;
             //score++;
             FindButtonByText(selectRomanji).image.color = wrongColor;
-            FindButtonByText(currentCorrectRomanji).image.color = correctColor;
+            FindButtonByText(currentCorrectRomaji).image.color = correctColor;
         }
 
         UpdateScoreText();
