@@ -17,6 +17,11 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("ProfileScreen");
     }
 
+    public void GoToDictionaryScreen()
+    {
+        SceneManager.LoadScene("DictionaryScreen");
+    }
+
     // Метод для кнопки "Настройки"
     public void OpenSettings()
     {

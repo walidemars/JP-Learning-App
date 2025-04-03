@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu/HiraganaMap.unity
     guid: 12a03c4c548a10c48b5b0c799311f3ba
   - enabled: 1
+    path: Assets/Scenes/MainMenu/DictionaryScreen.unity
+    guid: a780e78da5d13ec41b712a7fba3b5a73
+  - enabled: 1
     path: Assets/Scenes/KanaLearningLevel.unity
     guid: eb4489b0eb1280a4aa7f0e3f7b0b0a81
   m_configObjects:
