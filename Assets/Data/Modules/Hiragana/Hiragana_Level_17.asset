@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3229307456dc1cd49b7a62fff34b6640, type: 3}
+  m_Name: Hiragana_Level_17
+  m_EditorClassIdentifier: 
+  moduleName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 17"
+  kanaList:
+  - {fileID: 11400000, guid: deb51793f3205084ba049fc1fe9cb6f2, type: 2}
+  - {fileID: 11400000, guid: 91c8246bc9b40fd449b41f8b7180ea17, type: 2}
+  - {fileID: 11400000, guid: b6b47769dc8fc1849824e173453b303c, type: 2}
+  - {fileID: 11400000, guid: 4ead802affb40d745bb9e61477594d89, type: 2}
+  - {fileID: 11400000, guid: 6cd9c942dc6c0cd43a9afaa1cecfdb0b, type: 2}
+  - {fileID: 11400000, guid: f362f85c04fe44e44a0d3b1ff8153ddf, type: 2}

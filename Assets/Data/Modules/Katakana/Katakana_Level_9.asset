@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3229307456dc1cd49b7a62fff34b6640, type: 3}
+  m_Name: Katakana_Level_9
+  m_EditorClassIdentifier: 
+  moduleName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 9"
+  kanaList:
+  - {fileID: 11400000, guid: 2cec65a16466edb449c8800caeb65986, type: 2}
+  - {fileID: 11400000, guid: ed0b1adaa50bfd14aa8460b17c7ba3fb, type: 2}
+  - {fileID: 11400000, guid: eba445eedf4d0654d942f061c7ea9bd0, type: 2}
+  - {fileID: 11400000, guid: 1af6c8f4f8f86eb46a3133739c9d13a8, type: 2}
+  - {fileID: 11400000, guid: 15b76efb5814a4244a0eab7998188b9a, type: 2}
+  - {fileID: 11400000, guid: 72e7e5dcbfa83b24f9a5309eca4ec6cf, type: 2}

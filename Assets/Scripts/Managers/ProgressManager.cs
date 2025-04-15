@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public static class ProgressManager
 {
+
     // Префикс для ключей уровней, чтобы избежать конфликтов имен
     private const string LevelKeyPrefix = "Level_Unlocked_";
 
@@ -22,14 +24,14 @@ public static class ProgressManager
     }
 
     // Метод для разблокировки уровня
-    public static void UnlockLevel(int levelIndex)
+    public static void UnlockLevel(int levelIndexToUnlock)
     {
-        if (levelIndex == 0) return;
+        if (levelIndexToUnlock == 0) return;
 
-        string levelKey = LevelKeyPrefix + levelIndex;
+        string levelKey = LevelKeyPrefix + levelIndexToUnlock;
         PlayerPrefs.SetInt(levelKey, 1);
         PlayerPrefs.Save();
-        Debug.Log($"Уровень {levelIndex + 1} разблокирован!");
+        Debug.Log($"Уровень {levelIndexToUnlock + 1} разблокирован! Ключ: {levelKey}");
     }
     // Дополнительно: метод для разблокировки следующего уровня
     public static void UnlockNextLevel(int completeLevelIndex)
@@ -40,16 +42,15 @@ public static class ProgressManager
     // Метод для сброса всего прогресса по уровням
     public static void ResetAllLevelProgress()
     {
-        Debug.Log("Сброс всего прогресса уровней.");
-
+        Debug.Log("Сброс прогресса уровней для Хираганы и Катаканы.");
 
         for (int i = 1; i < 100;  i++)
         {
             string levelKey = LevelKeyPrefix + i;
-            if (PlayerPrefs.HasKey(levelKey))
+            if (PlayerPrefs.HasKey(LevelKeyPrefix + i))
             {
-                PlayerPrefs.DeleteKey(levelKey);
-                Debug.Log($"Удален ключ: {levelKey}");
+                PlayerPrefs.DeleteKey(LevelKeyPrefix + i);
+                Debug.Log($"Удален ключ: {levelKey + i}");
             }
         }
         // PlayerPrefs.DeleteAll(); // Удаление ВСЕХ сохраненных данных

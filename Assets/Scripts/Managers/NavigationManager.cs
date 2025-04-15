@@ -19,4 +19,9 @@ public class NavigationManager : MonoBehaviour
     {
         SceneManager.LoadScene("HiraganaMap");
     }
+
+    public void GoToKatakanaMap()
+    {
+        SceneManager.LoadScene("KatakanaMap");
+    }
 }
