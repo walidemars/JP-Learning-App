@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class ModuleDisplay : MonoBehaviour
 {
+    public enum KanaType { Hiragana, Katakana  };
+
+    [Header("Тип катаканы для этой карты")]
+    public KanaType displayType = KanaType.Hiragana;
+
     [Header("Данные Уровней")]
     //public KanaModuleData[] currentLevels;
     public KanaLevelCollection levelCollection; // ССЫЛКА НА ВСЕ УРОВНИ
@@ -63,7 +68,27 @@ public class ModuleDisplay : MonoBehaviour
         }*/
 
         // Получаем массив уровней из коллекции
-        KanaModuleData[] levelsToDisplay = levelCollection.hiraganaLevels;
+        KanaModuleData[] levelsToDisplay;
+        //KanaModuleData[] levelsToDisplay = levelCollection.hiraganaLevels;
+
+        if (displayType == KanaType.Hiragana)
+        {
+            levelsToDisplay = levelCollection.hiraganaLevels;
+            if(levelsToDisplay == null)
+            {
+                Debug.LogError("Массив уровней Хираганы в коллекции не инициализирован!");
+                return;
+            }
+        }
+        else // displayType == KanaType.Katakana
+        {
+            levelsToDisplay = levelCollection.katakanaLevels;
+            if (levelsToDisplay == null)
+            {
+                Debug.LogError("Массив уровней Катаканы в коллекции не инициализирован!");
+                return;
+            }
+        }
 
         for (int i = 0; i < levelsToDisplay.Length; i++)
         { 
@@ -82,7 +107,7 @@ public class ModuleDisplay : MonoBehaviour
             }
 
             // Проверяем, разблокирован ли уровень
-            bool isUnlocked = ProgressManager.IsLevelUnlocked(levelIndex);
+            bool isUnlocked = ProgressManager.IsLevelUnlocked(levelIndex, displayType);
 
             if (buttonComponent != null)
             {
@@ -101,7 +126,7 @@ public class ModuleDisplay : MonoBehaviour
                     buttonComponent.onClick.AddListener(() =>
                     {
                         // Этот код выполнится при клике на ЭТУ конкретную кнопку
-                        SelectLevel(levelData, levelIndex);
+                        SelectLevel(levelData, levelIndex, displayType);
                     });
                 }
                 
@@ -114,7 +139,7 @@ public class ModuleDisplay : MonoBehaviour
     }
 
     // Mетод для обработки выбора уровня
-    void SelectLevel(KanaModuleData selectedLevel, int levelIndex)
+    void SelectLevel(KanaModuleData selectedLevel, int levelIndex, KanaType selectedType)
     {
         if (selectedLevel == null)
         {
@@ -122,9 +147,9 @@ public class ModuleDisplay : MonoBehaviour
             return;
         }
 
-        if(!ProgressManager.IsLevelUnlocked(levelIndex))
+        if(!ProgressManager.IsLevelUnlocked(levelIndex, selectedType))
         {
-            Debug.LogWarning($"Попытка загрузить заблокированный уровень {levelIndex}.");
+            Debug.LogWarning($"Попытка загрузить заблокированный уровень {selectedType} {levelIndex}.");
             return;
         }
 
@@ -135,16 +160,16 @@ public class ModuleDisplay : MonoBehaviour
 
         // Пока что разблокируем следующий уровень сразу после выбора текущего.
         // В будущем это нужно будет перенести в конец успешного прохождения уровня.
-        ProgressManager.UnlockNextLevel(levelIndex);
+        ProgressManager.UnlockNextLevel(levelIndex, selectedType);
 
         SceneManager.LoadScene("KanaLearningLevel");
     }
 
-    public void ResetProgress()
+    /*public void ResetProgress()
     {
         ProgressManager.ResetAllLevelProgress();
         // Перегенерировать кнопки, чтобы обновить их вид
         GenerateLevelButtons();
         Debug.Log("Прогресс сброшен, кнопки обновлены.");
-    }
+    }*/
 }

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class NavigationManager : MonoBehaviour
 {
+
     // Метод для возврата в главное меню
     public void GoToMainMenu()
     {

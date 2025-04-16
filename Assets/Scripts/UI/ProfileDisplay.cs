@@ -4,10 +4,11 @@ using TMPro;
 public class ProfileDisplay : MonoBehaviour
 {
     [Header("Данные Уровней")]
-    public KanaLevelCollection hiraganaCollection; // Ссылка на ВСЕ уровни хираганы
+    public KanaLevelCollection levelCollection; // Ссылка на ВСЕ уровни хираганы
 
     [Header("UI Элементы")]
-    public TextMeshProUGUI progressText;
+    public TextMeshProUGUI hiraganaProgressText;
+    public TextMeshProUGUI katakanaProgressText;
 
     private void Start()
     {
@@ -16,21 +17,68 @@ public class ProfileDisplay : MonoBehaviour
 
     void UpdateProgressDisplay()
     {
-        if (hiraganaCollection == null || hiraganaCollection.hiraganaLevels == null)
+        if (levelCollection == null)
         {
-            Debug.LogError("Коллекция уровней хираганы не назначена!");
-            if (progressText != null) progressText.text = "Ошибка: нет данных";
+            Debug.LogError("Коллекция уровней не назначена!");
+            if (hiraganaProgressText != null) hiraganaProgressText.text = "Хирагана: Ошибка";
+            if (katakanaProgressText != null) katakanaProgressText.text = "Катакана: Ошибка";
             return;
         }
 
-        if (progressText == null)
+        // Прогресс Хираганы
+        if (hiraganaProgressText != null)
         {
-            Debug.LogError("UI элемент progressText не назначен!");
-            return;
+            if (levelCollection.hiraganaLevels != null && levelCollection.hiraganaLevels.Length > 0)
+            {
+                int totalLevels = levelCollection.hiraganaLevels.Length;
+                int unlockedCount = 0;
+                for (int i = 0; i < totalLevels; i++)
+                {
+                    if (ProgressManager.IsLevelUnlocked(i, ModuleDisplay.KanaType.Hiragana))
+                    {
+                        unlockedCount++;
+                    }
+                }
+                hiraganaProgressText.text = $"Хирагана: Пройдено {unlockedCount} / {totalLevels}";
+            }
+            else
+            {
+                hiraganaProgressText.text = "Хирагана: Нет данных";
+            } 
+        }
+        else
+        {
+            Debug.LogError("UI Элемент hiraganaProgressText не назначен!");
         }
 
+        // Прогресс Катаканы
+        if (katakanaProgressText != null)
+        {
+            if (levelCollection.hiraganaLevels != null && levelCollection.katakanaLevels.Length > 0)
+            {
+                int totalLevels = levelCollection.katakanaLevels.Length;
+                int unlockedCount = 0;
+                for (int i = 0; i < totalLevels; i++)
+                {
+                    if (ProgressManager.IsLevelUnlocked(i, ModuleDisplay.KanaType.Katakana))
+                    {
+                        unlockedCount++;
+                    }
+                }
+                katakanaProgressText.text = $"Катакана: Пройдено {unlockedCount} / {totalLevels}";
+            }
+            else
+            {
+                katakanaProgressText.text = "Катакана: Нет данных";
+            }
+        }
+        else
+        {
+            Debug.LogError("UI Элемент hiraganaProgressText не назначен!");
+        }
+        /*
         // Считаем прогресс
-        int totalLevels = hiraganaCollection.hiraganaLevels.Length;
+        int totalLevels = levelCollection.hiraganaLevels.Length;
         int unlockedCount = 0;
 
         for(int i = 0; i < totalLevels; i++)
@@ -49,5 +97,6 @@ public class ProfileDisplay : MonoBehaviour
         {
             progressText.text = $"Хирагана: Пройдено {unlockedCount} / {totalLevels}";
         }
+        */
     }
 }

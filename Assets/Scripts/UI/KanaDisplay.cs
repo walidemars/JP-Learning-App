@@ -287,7 +287,7 @@ public class KanaDisplay : MonoBehaviour
     {
         if(scoreText != null)
         {
-            scoreText.text = $"—чет: {score}";
+            scoreText.text = $"—чет: {score} / 5";
         }
     }
 

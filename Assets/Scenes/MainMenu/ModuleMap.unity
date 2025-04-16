@@ -523,7 +523,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1825379097}
         m_TargetAssemblyTypeName: NavigationManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: GoToKatakanaMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
