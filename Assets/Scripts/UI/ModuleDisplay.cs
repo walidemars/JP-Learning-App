@@ -39,34 +39,6 @@ public class ModuleDisplay : MonoBehaviour
             return;
         }
 
-        /*foreach(KanaModuleData levelData in currentLevels)
-        {
-            // ВАЖНО: Создаем локальную копию для лямбда-выражения
-            KanaModuleData currentLevelDataForButton = levelData;
-
-            GameObject buttonGO = Instantiate(levelButtonPrefab, buttonsContainer);
-            TextMeshProUGUI buttonText = buttonGO.GetComponentInChildren<TextMeshProUGUI>();
-            if (buttonText != null)
-            {
-                buttonText.text = currentLevelDataForButton.moduleName;
-            }
-
-            // Получаем компонент Button
-            Button buttonComponent = buttonGO.GetComponentInChildren<Button>();
-            if (buttonComponent != null)
-            {
-                buttonComponent.onClick.AddListener(() =>
-                {
-                    // Этот код выполнится при клике на ЭТУ конкретную кнопку
-                    SelectLevel(currentLevelDataForButton);
-                });
-            }
-            else
-            {
-                Debug.LogWarning($"На префабе кнопки {levelButtonPrefab.name} не найден компонент Button!", buttonGO);
-            }
-        }*/
-
         // Получаем массив уровней из коллекции
         KanaModuleData[] levelsToDisplay;
         //KanaModuleData[] levelsToDisplay = levelCollection.hiraganaLevels;
@@ -164,12 +136,4 @@ public class ModuleDisplay : MonoBehaviour
 
         SceneManager.LoadScene("KanaLearningLevel");
     }
-
-    /*public void ResetProgress()
-    {
-        ProgressManager.ResetAllLevelProgress();
-        // Перегенерировать кнопки, чтобы обновить их вид
-        GenerateLevelButtons();
-        Debug.Log("Прогресс сброшен, кнопки обновлены.");
-    }*/
 }

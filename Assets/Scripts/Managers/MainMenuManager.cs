@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,10 +34,13 @@ public class MainMenuManager : MonoBehaviour
     public void QuitApplication()
     {
         Debug.Log("Нажата кнопка ВЫХОД!");
-        Application.Quit();
+        
 
 #if UNITY_EDITOR
         Debug.Log("Application.Quit() вызвана (в редакторе не закрывает приложение).");
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
 #endif
     }
 

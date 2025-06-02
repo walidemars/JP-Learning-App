@@ -15,5 +15,5 @@ MonoBehaviour:
   kanaSymbol: "\u3044"
   romaji: i
   description: 
-  image: {fileID: 0}
+  image: {fileID: -1728491015, guid: 8a78ac58dec12934289024b990da0ad7, type: 3}
   pronunciation: {fileID: 0}

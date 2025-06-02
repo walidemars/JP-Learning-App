@@ -15,5 +15,5 @@ MonoBehaviour:
   kanaSymbol: "\u304A"
   romaji: o
   description: 
-  image: {fileID: 0}
+  image: {fileID: -5098722796299924958, guid: 8beae3e2b963e8447bfebb80f672025f, type: 3}
   pronunciation: {fileID: 0}

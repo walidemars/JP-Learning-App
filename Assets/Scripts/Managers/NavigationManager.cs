@@ -25,4 +25,9 @@ public class NavigationManager : MonoBehaviour
     {
         SceneManager.LoadScene("KatakanaMap");
     }
+
+    public void GoToGame()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
 }
