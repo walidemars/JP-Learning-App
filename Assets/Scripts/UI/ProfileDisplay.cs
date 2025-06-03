@@ -17,15 +17,14 @@ public class ProfileDisplay : MonoBehaviour
 
     void UpdateProgressDisplay()
     {
-        if (levelCollection == null)
+        /*if (levelCollection == null)
         {
             Debug.LogError("Коллекция уровней не назначена!");
             if (hiraganaProgressText != null) hiraganaProgressText.text = "Хирагана: Ошибка";
             if (katakanaProgressText != null) katakanaProgressText.text = "Катакана: Ошибка";
             return;
-        }
+        }*/
 
-        // Прогресс Хираганы
         if (hiraganaProgressText != null)
         {
             if (levelCollection.hiraganaLevels != null && levelCollection.hiraganaLevels.Length > 0)

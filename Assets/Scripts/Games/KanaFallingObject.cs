@@ -8,7 +8,7 @@ public class KanaFallingObject : MonoBehaviour
     [Header("Компоненты")]
     public float fallSpeed = 2f;
 
-    private SpriteRenderer spriteRenderer; // Для отображения изображения
+    private SpriteRenderer spriteRenderer;
     private KanaCharacterData kanaData;
     private bool isActive = true;
     private System.Action<KanaCharacterData> clickCallback;
@@ -18,11 +18,6 @@ public class KanaFallingObject : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
-        if (spriteRenderer == null)
-        {
-            Debug.LogError("KanaFallingObject: Компонент SpriteRenderer не найден!");
-            isActive = false;
-        }
     }
 
     public void Setup(KanaCharacterData data, System.Action<KanaCharacterData> callback)
@@ -42,7 +37,6 @@ public class KanaFallingObject : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("KanaFallingObject: Не удалось установить изображение! SpriteRenderer или данные каны отсутствуют.");
             if (spriteRenderer != null) spriteRenderer.sprite = null;
         }
     }
@@ -62,7 +56,7 @@ public class KanaFallingObject : MonoBehaviour
         }
         else if (Camera.main == null)
         {
-            Debug.LogWarning("KanaFallingObject: Основная камера не найдена для проверки границ.");
+            Debug.LogWarning("KanaFallingObject: Основная камера не найдена");
         }
     }
 

@@ -17,7 +17,7 @@ public class SpawnerManager : MonoBehaviour
 
     private Coroutine spawningCoroutine;
     private Coroutine difficultyCoroutine;
-    private float currentSpawnRate; // Текущая скорость спавна
+    private float currentSpawnRate;
 
     private void Awake()
     {
@@ -28,7 +28,6 @@ public class SpawnerManager : MonoBehaviour
 
         if (currentLevelData == null || currentLevelData.kanaList == null || currentLevelData.kanaList.Count == 0)
         {
-            Debug.LogError("SpawnerManager: Не удалось загрузить данные уровня! Убедитесь, что LevelLoadData.selectedLevelData установлено.");
             enabled = false;
             return;
         }
@@ -39,7 +38,7 @@ public class SpawnerManager : MonoBehaviour
     {
         if (!enabled) return;
 
-        currentSpawnRate = initialSpawnRate; // Сброс скорости спавна при старте
+        currentSpawnRate = initialSpawnRate;
         spawningCoroutine = StartCoroutine(SpawnKanas());
         difficultyCoroutine = StartCoroutine(IncreaseDifficulty());
     }
@@ -80,7 +79,7 @@ public class SpawnerManager : MonoBehaviour
 
     public void SpawnSingleKana()
     {
-        if (kanaPrefab == null || currentLevelData == null || GameManager.Instance == null)
+        /*if (kanaPrefab == null || currentLevelData == null || GameManager.Instance == null)
         {
             Debug.LogWarning("SpawnerManager: Не могу создать кану. Префаб, данные уровня или GameManager отсутствуют.");
             return;
@@ -90,7 +89,7 @@ public class SpawnerManager : MonoBehaviour
         {
             Debug.LogError("SpawnerManager: Основная ортографическая камера не найдена! Невозможно определить позицию спавна.");
             return;
-        }
+        }*/
 
         float xPos = Random.Range(-spawnWidth / 2, spawnWidth / 2);
 
@@ -103,7 +102,6 @@ public class SpawnerManager : MonoBehaviour
         KanaCharacterData randomKana = GetRandomKanaData();
         if (randomKana == null)
         {
-            Debug.LogWarning("SpawnerManager: Не удалось получить случайные данные каны для спавна.");
             Destroy(newKana);
             return;
         }
@@ -111,13 +109,11 @@ public class SpawnerManager : MonoBehaviour
         KanaFallingObject kanaObject = newKana.GetComponent<KanaFallingObject>();
         if (kanaObject != null)
         {
-            // Передаем данные и коллбэк HandleKanaClick из GameManager
-            kanaObject.Setup(randomKana, GameManager.Instance.HandleKanaClick);
+            kanaObject.Setup(randomKana, GameManager.Instance.KanaClick);
         }
         else
         {
-            Debug.LogError("SpawnerManager: Префаб каны не содержит компонент KanaFallingObject!");
-            Destroy(newKana); // Уничтожаем, если компонент отсутствует
+            Destroy(newKana);
         }
     }
 

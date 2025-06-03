@@ -27,11 +27,7 @@ public static class ProgressManager
         {
             return true;
         }
-
-        // Формируем ключ
         string levelKey = GetLevelKey(levelIndex, kanaType);
-
-        // Проверяем, есть ли ключ, возвращаем true, если есть, иначе false
         return PlayerPrefs.GetInt(levelKey, 0) == 1;
     }
 
@@ -45,7 +41,7 @@ public static class ProgressManager
         PlayerPrefs.Save();
         Debug.Log($"Уровень {levelIndexToUnlock + 1} разблокирован! Ключ: {levelKey}");
     }
-    // Дополнительно: метод для разблокировки следующего уровня
+
     public static void UnlockNextLevel(int completeLevelIndex, ModuleDisplay.KanaType kanaType)
     {
         UnlockLevel(completeLevelIndex + 1, kanaType);
@@ -71,7 +67,7 @@ public static class ProgressManager
                 keysToDelete.Add(KlevelKey);
             }
         }
-        // PlayerPrefs.DeleteAll(); // Удаление ВСЕХ сохраненных данных
+        // PlayerPrefs.DeleteAll();
 
         Debug.Log($"Найдено ключей для удаления: {keysToDelete.Count}");
 

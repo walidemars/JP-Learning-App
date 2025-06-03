@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HandleKanaClick(KanaCharacterData kanaData)
+    public void KanaClick(KanaCharacterData kanaData)
     {
         if (!isGameActive || kanaData == null) return;
 
@@ -134,8 +134,6 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-
-        // Меняем цель после каждого клика
         SetNewTarget();
         UpdateUI();
     }

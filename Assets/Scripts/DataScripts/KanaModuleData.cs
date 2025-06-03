@@ -5,5 +5,5 @@ using System.Collections.Generic;
 public class KanaModuleData : ScriptableObject
 {
     public string moduleName;
-    public List<KanaCharacterData> kanaList; // Список символов каны в этом модуле
+    public List<KanaCharacterData> kanaList;
 }

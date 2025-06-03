@@ -10,20 +10,18 @@ public class DictionaryDisplay : MonoBehaviour
     public KanaLevelCollection kanaCollection;
 
     [Header("UI Настройки")]
-    public Transform contentParent; // Родительский объект для записей (Content в ScrollView)
-    public GameObject entryPrefab; // Префаб для одной записи словаря
+    public Transform contentParent;
+    public GameObject entryPrefab;
     public TextMeshProUGUI titleText;
-    public Button hiraganaButton; // Кнопка выбора Хираганы
-    public Button katakanaButton; // Кнопка выбора Катаканы
+    public Button hiraganaButton;
+    public Button katakanaButton;
 
-    // Переменная для хранения текущего режима
     private enum DisplayMode { Hiragana, Katakana };
     private DisplayMode currentMode = DisplayMode.Hiragana;
 
     private void Start()
     {
         //PopulateDictionary();
-        // Назначаем слушатели на кнопки
         if (hiraganaButton != null)
         {
             hiraganaButton.onClick.AddListener(() => SetMode(DisplayMode.Hiragana));
@@ -33,11 +31,9 @@ public class DictionaryDisplay : MonoBehaviour
             katakanaButton.onClick.AddListener(() => SetMode(DisplayMode.Katakana));
         }
 
-        // Отображаем начальный режим (Хирагана)
         SetMode(DisplayMode.Hiragana);
     }
 
-    // Метод для установки режима и обновления отображения
     void SetMode(DisplayMode newMode)
     {
         currentMode = newMode;
@@ -45,7 +41,6 @@ public class DictionaryDisplay : MonoBehaviour
         UpdateTitleAndButtons();
     }
 
-    // Метод для обновления заголовка и внешнего вида кнопок
     void UpdateTitleAndButtons()
     {
         if (titleText != null)
@@ -53,7 +48,6 @@ public class DictionaryDisplay : MonoBehaviour
             titleText.text = $"Словарь - {currentMode}";
         }
 
-        // Простое выделение активной кнопки
         if (hiraganaButton != null)
         {
             hiraganaButton.interactable = (currentMode != DisplayMode.Hiragana);
@@ -66,7 +60,7 @@ public class DictionaryDisplay : MonoBehaviour
 
     void PopulateDictionary()
     {
-        if (kanaCollection == null)
+        /*if (kanaCollection == null)
         {
             Debug.LogError("Коллекция уровней кана не назначена!");
             return;
@@ -80,15 +74,13 @@ public class DictionaryDisplay : MonoBehaviour
         {
             Debug.LogError("Префаб 'entryPrefab' для записи словаря не назначен!");
             return;
-        }
+        }*/
 
-        // Очистка старых записей
         foreach (Transform child in contentParent)
         {
             Destroy(child.gameObject);
         }
 
-        // Выбор источника данных
         KanaModuleData[] sourceLevels;
         if (currentMode == DisplayMode.Hiragana)
         {
@@ -109,25 +101,20 @@ public class DictionaryDisplay : MonoBehaviour
             }
         }
 
-        // Сбор всех символов
         List<KanaCharacterData> charactersToDisplay = sourceLevels
                                                     .Where(level => level != null && level.kanaList != null) 
-                                                    .SelectMany(level => level.kanaList) // Используем SelectMany для "сплющивания" списков kanaList из всех уровней в один список
+                                                    .SelectMany(level => level.kanaList)
                                                     .ToList();
 
-        // Создание UI элементов
         foreach(KanaCharacterData kanaData in charactersToDisplay)
         {
             if (kanaData == null) continue;
 
-            // Создаем экземпляр префаба
             GameObject entryGO = Instantiate(entryPrefab, contentParent);
 
-            // Находим текстовые поля в префабе
             TextMeshProUGUI kanaText = entryGO.transform.Find("Kana Text")?.GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI romajiText = entryGO.transform.Find("Romaji Text")?.GetComponent<TextMeshProUGUI>();
 
-            // Заполняем тексты данными
             if (kanaText != null)
             {
                 kanaText.text = kanaData.kanaSymbol;
